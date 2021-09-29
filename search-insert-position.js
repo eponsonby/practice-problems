@@ -4,11 +4,36 @@
 
 // You must write an algorithm with O(log n) runtime complexity.
 
+// Didn't quite get this one figured out but spent too much time, moved on
+
 function searchInsert(nums, target) {
+
+    let start = 0
+    let end = nums.length - 1
+    let middle = Math.floor((start + end) / 2)
+
+    if (target === 0) return 0
+
+    while (nums[middle] != target && start <= end) {
+        if (target > nums[middle]) {
+            start = middle + 1
+            if (start === end || start > end) return end - 1
+        } else {
+            end = middle - 1
+            if (start === end || start > end) return end + 1
+        }
+        
+        middle = Math.floor((start + end) / 2)
+    }
+
+    if (nums[middle] === target) return middle
 
 }
 
-searchInsert()
+let nums = [1, 3]
+let target = 2
+
+searchInsert(nums, target)
 
 
 // Example 1
