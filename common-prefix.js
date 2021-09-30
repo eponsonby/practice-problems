@@ -5,64 +5,71 @@
 // Output: "fl"
 
 
-// flo
-// flo
-// fli
-
-// first print first letter of each word
-// print second letter of each word
-// print third letter of each word
-// stop when all three letters are not the same
-
-
 // Input: strs = ["dog","racecar","car"]
 // Output: ""
 
 
+// had to look this one up, could not figure it out
 
-function printChars(alphabet, n, currString){
-    // base case
-    if (currString.length === n) {
-      console.log(currString);
-      return
-    }
-    
-    // We need to extend currString by append all possible characters to it.
-    for (var i = 0; i < alphabet.length; i++) {
-      // Append alphabet[i] to currString and call recursively.
-      printChars(alphabet, n, currString + alphabet[i]);
-    }
 
-    
-function common(strings) {
-    let split = []
-    
-    for (let i = 0; i < strings.length; i++) {
-        split.push(strings[i].split(''))
-    }
 
-    let i = 0
+// function common(strings) {
+//     let split = []
     
-    function recursion(split) {
+//     for (let i = 0; i < strings.length; i++) {
+//         split.push(strings[i].split(''))
+//     }
 
-        if ()
-        for (let i = 0; i < split.length; i++) {
-        recursion(split[i])
+//     // shift the first letter of each word
+//     // print it
+//     // stop when all three letters are not the same
+//     let currentString = ''
+//     let currentLetter = ''
+
+//     for (let i = 0; i < split.length; i++) {
+//         console.log(i)
+//         for (let j = 0; j < split[i].length; j++) {
+//             console.log(j)
+//         }
+//     }
+
+    // function recursion(currentString, currentLetter, split) {
+    //     console.log(split.length)
+
+    //     if (currentString.length === split.length) {
+    //     // console.log(currentString)
+    //     return 
+    //     }
+
+    //     for (let i = 0; i < split.length; i++) {
+    //         currentLetter = split[i].shift()
+    //         recursion(currentString + currentLetter)
+    //     }
+
+    // }
+
+    // recursion(currentString, currentLetter, split)
+    
+
+    // This is the solution I looked up
+
+    function prefix(arr) {
+        // checking if array is empty
+        if (!arr.length) return "";
+        let prefix = "";
+        
+        // comparing everything to the first string (array[0])
+        for (let i = 0; i < arr[0].length; i++) {
+            for (let j = 0; j < arr.length-1; j++) {
+                if (arr[j][i] !== arr[j+1][i]) return prefix;
+            }
+            prefix += arr[0][i];
         }
+        return prefix;
     }
-
-}
-
-function add(num) {
-
-    if (num === 1) return 1
-    return num + add(num - 1)
-
-}
-
-add(5)
-
+    
 
 let strings = ["flower", "flow", "flight"]
 
-common(strings)
+prefix(strings)
+        
