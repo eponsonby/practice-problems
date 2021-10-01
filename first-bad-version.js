@@ -44,50 +44,63 @@
 //     };
 // };
 
+// This is what they were looking for
 
-function isBadVersion(numberOfVersions, badVersion) {
-    // construct an array from 1 to numberOfVersions
-    // use binarySearch to find the badVersion (the target)
+var solution = function(isBadVersion) {
+  /**
+   * @param {integer} n Total versions
+   * @return {integer} The first bad version
+   */
+  return function(n) {
+      let start = 1
+      end = n
 
-    function rangeOfNumbers(startNum, endNum) {
-        if (endNum - startNum === 0) {
-          return [startNum];
-        } else {
-          let numbers = rangeOfNumbers(startNum, endNum - 1);
-          numbers.push(endNum);
-          return numbers
-        }
+      while(start < end) {
+          let middle = Math.floor((start + (end - start)) / 2)
+          if (isBadVersion(middle)) {
+              end = middle // look to the left of mid
+          } else {
+              start = middle + 1 // look to the right of mid
+          }
       }
-
-    let versions = rangeOfNumbers(1, numberOfVersions)
-
-    let start = 0
-    let end = versions.length - 1
-    let middle = ((start + end) / 2 )
-
-    while (badVersion != versions[middle]) {
-        if (badVersion < versions[middle]){
-            end = middle - 1
-        } else {
-            start = middle + 1
-        }
-        middle = ((start + end) / 2)
-    }
-        return middle === versions[middle] ? middle : -1
+      return start
+  }
+  
 }
 
-    // is bad version less than the middle value?
-    // end = middle - 1
-    // is badversion greater than the middle value?
-    // start = middle + 1
 
-    // recaclulate middle at the end of each loop because we've moved start/and or end
-    // middle = ((start + end) / 2)
+// function isBadVersion(numberOfVersions, badVersion) {
+//     // construct an array from 1 to numberOfVersions
+//     // use binarySearch to find the badVersion (the target)
 
-    // end when target = nums[middle]
+//     function rangeOfNumbers(startNum, endNum) {
+//         if (endNum - startNum === 0) {
+//           return [startNum];
+//         } else {
+//           let numbers = rangeOfNumbers(startNum, endNum - 1);
+//           numbers.push(endNum);
+//           return numbers
+//         }
+//       }
 
-    // if nums[middle] === target return middle
+//     let versions = rangeOfNumbers(1, numberOfVersions)
 
+//     let start = 0
+//     let end = versions.length - 1
+//     let middle = ((start + end) / 2 )
+
+//     while (badVersion != versions[middle]) {
+//         if (badVersion < versions[middle]){
+//             end = middle - 1
+//         } else {
+//             start = middle + 1
+//         }
+//         middle = ((start + end) / 2)
+//     }
+//         return middle === versions[middle] ? middle : -1
+// }
+
+    
 
 isBadVersion(5, 4)
 
