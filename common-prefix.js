@@ -52,20 +52,22 @@
     
 
     // This is the solution I looked up
+    // And reimplemented from memory
 
-    function prefix(arr) {
-        // checking if array is empty
-        if (!arr.length) return "";
-        let prefix = "";
-        
-        // comparing everything to the first string (array[0])
-        for (let i = 0; i < arr[0].length; i++) {
-            for (let j = 0; j < arr.length-1; j++) {
-                if (arr[j][i] !== arr[j+1][i]) return prefix;
+    function prefix(strings) {
+        console.log(strings)
+
+        let prefix = strings[0]
+
+        for (let i = 1; i < strings.length; i++) {
+            for (let k = 0; k < prefix.length; k++) {
+                if(strings[i][k] != prefix[k]) {
+                    prefix = prefix.slice(0, k)
+                }
             }
-            prefix += arr[0][i];
         }
-        return prefix;
+            console.log(prefix)
+            return prefix
     }
     
 
