@@ -29,7 +29,7 @@
 // unshift it to the front  (array.unshift(popped))
 
 // Option 1
-// O(n) time complexity?
+// O(n) time complexity? Note sure how unshift and pop effect time complexity
 // function rotate(nums, k) {
 
 //     for (let i = 0; i < k; i++) {
@@ -53,11 +53,8 @@
 // Option 3
 // [1,2,3,4,5,6,7]
 
-// 7 6 5 4 3 2 1
-
-// 5 6 7 1 2 3 4
-
 // reverse entire array
+// Reverse each part
 // reverse 0 - 2
 // reverse 3 - 6
 
