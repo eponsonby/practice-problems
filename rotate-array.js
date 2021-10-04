@@ -44,26 +44,40 @@
 // }
 
 // Option 3
-// [1,2,3,4,5,6,7]
 
 // reverse entire array
 // Reverse each part
 // reverse 0 - 2
 // reverse 3 - 6
 
-// Below still doesn't reverse in place
+// couldn't figure out to how to manually reverse/swap 
+// Looked this solution up
+// Need to review
+
  function rotate(nums, k) {
+     if (nums === null || nums.length === 0) {
+         return
+     }
 
-     rotate(nums, k)
-     k = k
-     nums.reverse()
+    let middle = k % nums.length
+    console.log(middle)
+    
+    nums.reverse()
+    reverse(nums, 0, middle - 1)
+    reverse(nums, middle, nums.length - 1)
 
-     let first = nums.slice(0, 3).reverse()
-        nums.slice(3, -1).reverse()
+    function reverse(nums, start, end) {
+        while (start < end) {
+            let temp = nums[start]
+            nums[start] = nums[end]
+            nums[end] = temp
+            start++
+            end--
+        }
+    }
+    console.log(nums)
  }
 
-
-
-let nums = [1,2,3,4,5,6,7]
+let nums = [1, 2, 3, 4, 5, 6, 7]
 let k = 3
 rotate(nums, k)
