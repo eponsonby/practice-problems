@@ -11,12 +11,12 @@
 // Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory.
 
 // Example 1
-let nums = [3, 2, 2, 3]
-let val = 3
+ let nums = [3, 2, 2, 3]
+ let val = 3
 // Output = 2, nums = [2, 2,. ...] where 2 is the length and it doesn't matter what's after the 2's
 
 // Example 2
-// let nums = [0, 1, 2, 3, 0, 4, 2]
+// let nums = [0, 1, 2, 2, 3, 0, 4, 2]
 // let val = 2
 // output = 5, nums = [0, 1, 3, 0, 4, 2, 2]
 // Essentially, moving all occurrences of val to the end of the array 
@@ -24,16 +24,15 @@ let val = 3
 
 // iterate over the whole thing
 // if currentNum === val, add the end of array
-// sort nums and then use binary search to find the val
-// 
+
+
 function removeElement(nums, val) {
     for (let i = 0; i < nums.length; i++) {
-        if (nums[i] === val) {
-            nums.push(nums[i])
+        while (nums[i] === val) {
             nums.splice(i, 1)
-            console.log(nums)
         }
     }
+    console.log(nums.length)
     console.log(nums)
 }
 
