@@ -55,15 +55,7 @@ function maxSubArray(nums) {
 
 // Divide and Conquer Approach
 function maxSubArray(nums) {
-    function findBestSubArray(nums, left, right) {
-        // Base case
-        if (left > right) return -Infinity
-
-        mid = left + right
-        curr, bestLeftSum, bestRightSum = 0
-
-
-    }
+  
 
 }
 let nums = [-2,1,-3,4,-1,2,1,-5,4]
