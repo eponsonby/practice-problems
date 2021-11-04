@@ -27,6 +27,8 @@ function buyAndSell(prices) {
 }
 
 
+// O(n) time complexity
+// O(1) space complexity
 function buyAndSellFaster(prices){
     let min = Infinity
     let max = 0
