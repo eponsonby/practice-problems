@@ -9,7 +9,6 @@
 // Return the minimum number of moves required to make s valid.
 
  
-
 let s = "()))(("
 // Output: 1
 
